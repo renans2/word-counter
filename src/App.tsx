@@ -1,4 +1,3 @@
-import { useState } from "react";
 import WordCounterProvider from "./context/WordCounterProvider";
 import { ThemeProvider } from "styled-components";
 import { dark } from "./styles/themes/dark";
@@ -7,9 +6,10 @@ import { GlobalStyles } from "./styles/global";
 import Header from "./components/Header";
 import type { Theme } from "./types/Theme";
 import Main from "./components/Main";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 export default function App() {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useLocalStorage<Theme>("wordcounter/theme", "light");
 
   return (
     <ThemeProvider theme={theme === "dark" ? dark : light}>

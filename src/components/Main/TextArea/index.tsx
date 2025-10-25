@@ -22,9 +22,7 @@ export default function TextArea() {
     
     if (selectedText) {
       setSelectedText(selectedText)
-    } else {
-      setSelectedText("");
-    } 
+    }
   }
 
   return (  
@@ -33,6 +31,7 @@ export default function TextArea() {
       <S_TextArea 
         ref={textAreaRef}
         value={input}
+        placeholder="Start typing here..."
         onChange={(e) => setInput(e.target.value)}
         onSelect={handleChangeOrSelect}
       />

@@ -6,19 +6,20 @@ export function countAndSortWords(
   mode: Mode,
   searchWord: string
 ): ProcessedWords {
+  const lowerCaseSearchWord = searchWord.toLowerCase();
   let splittedWords = input.match(/[A-Za-zÀ-ÖØ-öø-ÿ]+/g) ?? [] as string[];
   const numWords = splittedWords.length;
 
   if (mode === "searchWord") {
     splittedWords = splittedWords.filter(word => 
-      word.toUpperCase().startsWith(searchWord.toUpperCase())
+      word.toLowerCase().startsWith(lowerCaseSearchWord)
     );
   }
 
   const frequencyMap = new Map<string, number>();
 
   splittedWords.forEach(rawWord => {
-    const word = rawWord.toUpperCase();
+    const word = rawWord.toLowerCase();
 
     if (frequencyMap.has(word)) {
       const freq = frequencyMap.get(word)!;

@@ -3,7 +3,7 @@ import { fontSettings } from "../fontSettings";
 
 export const dark: DefaultTheme = {
   fontSettings: fontSettings,
-  border: "1px solid #424242",
+  border: "1px solid #454545ff",
   colors: {
     background: "#282828",
     backgroundSurface: "#363636",

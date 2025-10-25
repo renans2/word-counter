@@ -20,7 +20,13 @@ export const GlobalStyles = createGlobalStyle`
 
   button:disabled {
     cursor: not-allowed;
-    opacity: 0.8;
+    opacity: 0.5;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: 3px solid ${({ theme }) => theme.colors.textSecondary};
   }
 
   *::selection {
@@ -31,5 +37,21 @@ export const GlobalStyles = createGlobalStyle`
   *::-moz-selection {
     background: ${({ theme }) => theme.colors.textSecondary};
     color: ${({ theme }) => theme.colors.background};
+  }
+  
+  ::-webkit-scrollbar {
+    width: 10px;
+    appearance: none;  
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      to bottom, 
+      ${({ theme }) => theme.colors.textSecondary},
+      ${({ theme }) => theme.colors.background}
+    );
+    border: ${({ theme }) => theme.border};
+    border-radius: 1000px;  
+    cursor: pointer;
   }
 `;

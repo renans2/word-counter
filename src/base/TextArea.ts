@@ -8,9 +8,12 @@ export const S_TextArea = styled(S_Surface).attrs({ as: "textarea" })<{
   height: 100%;
   width: 100%;
   resize: none;
-  padding: 10px;
   color: ${({ theme, $isSelectedTextArea }) =>
     $isSelectedTextArea
       ? theme.colors.textSecondary
       : theme.colors.textPrimary};
+
+  &::placeholder {
+    opacity: 0.5;
+  }
 `;

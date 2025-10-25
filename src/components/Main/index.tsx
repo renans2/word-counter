@@ -6,15 +6,21 @@ import { S_Container, S_Main, S_NumWords } from "./styles";
 
 export default function Main() {
   const { 
-    processedWords: { numWords },
+    processedWords: { numWords, sortedFrequencyMap },
     selectedText,
   } = useWordCounter();
 
-  const additionalText = selectedText ? "selected words" : "total words"
+  const selectedOrTotalText = selectedText ? "selected" : "total"
+  const wordOrWordsText = numWords === 1 ? "word" : "words"
 
   return (
     <S_Main>
-      <S_NumWords>{numWords} {additionalText}</S_NumWords>
+      <S_NumWords>
+        {numWords} <> </>
+        {selectedOrTotalText} <> </>
+        {wordOrWordsText} <> </>
+        ({sortedFrequencyMap.length} unique)
+      </S_NumWords>
       <S_Container>
         <TextArea />
         <SelectedText />

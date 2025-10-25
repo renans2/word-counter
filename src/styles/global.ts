@@ -14,6 +14,15 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.background};
   }
 
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+  }
+
   *::selection {
     background: ${({ theme }) => theme.colors.textSecondary};
     color: ${({ theme }) => theme.colors.background};

@@ -1,16 +1,19 @@
 import { S_TextArea } from "../../../base/TextArea";
 import { useWordCounter } from "../../../context/WordCounterProvider";
-import { S_Empty, S_SelectedTextContainer } from "./styles";
+import { S_ClearButton, S_Empty, S_SectionHeader, S_SelectedTextContainer } from "./styles";
 
 export default function SelectedText() {
-  const { selectedText } = useWordCounter();
+  const { selectedText, setSelectedText } = useWordCounter();
 
   return (
     <S_SelectedTextContainer $gridArea="selectedText">
-      <div>
+      <S_SectionHeader>
         <p>Selected text</p>
-        <button>CLEAR</button>
-      </div>
+        <S_ClearButton 
+          disabled={!selectedText}
+          onClick={() => setSelectedText("")}>CLEAR</S_ClearButton>
+      </S_SectionHeader>
+
       {selectedText ? (
         <S_TextArea 
           $isSelectedTextArea

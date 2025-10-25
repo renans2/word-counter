@@ -9,7 +9,7 @@ export const S_SectionContainer = styled.div<{
   height: 100%;
   grid-area: ${({ $gridArea }) => $gridArea};
 
-  & > p {
+  & p {
     color: ${({ theme }) => theme.colors.textSecondary};
   }
 `;

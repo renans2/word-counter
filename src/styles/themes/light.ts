@@ -3,7 +3,7 @@ import { fontSettings } from "../fontSettings";
 
 export const light: DefaultTheme = {
   fontSettings: fontSettings,
-  border: "1px solid #B4B4B4",
+  border: "1px solid #DBDBDB",
   colors: {
     background: "#EFEFEF",
     backgroundSurface: "#FBFBFB",

@@ -20,13 +20,13 @@ export interface FontSettings {
 
 export const fontSettings: FontSettings = {
   fontSize: {
-    heading: "1rem",
+    heading: "2.5rem",
     themeSelect: "1rem",
-    numWords: "1rem",
+    numWords: "2rem",
     textArea: "1rem",
     selectedMode: "1rem",
     word: "1rem",
-    wordFreq: "1rem",
+    wordFreq: "0.8rem",
     seeMoreButton: "1rem",
     bottomText: "1rem",
   },

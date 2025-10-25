@@ -1,13 +1,17 @@
 import React, { createContext, useContext, useState, type Dispatch, type SetStateAction } from "react"
 import type { Mode } from "../types/Mode";
 import { countAndSortWords } from "../utils/countAndSortWords";
+import type { ProcessedWords } from "../types/ProcessedWords";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 type WordCounterContextType = {
-  words: [string, number][];
+  processedWords: ProcessedWords;
   mode: Mode,
   setMode: Dispatch<SetStateAction<Mode>>;
   input: string,
   setInput: Dispatch<SetStateAction<string>>;
+  selectedText: string,
+  setSelectedText: Dispatch<SetStateAction<string>>;
   searchWord: string,
   setSearchWord: Dispatch<SetStateAction<string>>;
 }
@@ -16,18 +20,22 @@ const WordCounterContext = createContext<WordCounterContextType | undefined>(und
 
 export default function WordCounterProvider({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = useState<Mode>("mostFrequent");
-  const [input, setInput] = useState("");
+  const [input, setInput] = useLocalStorage<string>("wordcounter/input", "");
+  const [selectedText, setSelectedText] = useState("");
   const [searchWord, setSearchWord] = useState("");
   
-  const words = countAndSortWords(input, mode, searchWord);
+  const toBeProcessed = selectedText ? selectedText : input;
+  const processedWords = countAndSortWords(toBeProcessed, mode, searchWord);
 
   return (
     <WordCounterContext value={{
-      words,
+      processedWords,
       mode,
       setMode,
       input,
       setInput,
+      selectedText,
+      setSelectedText,
       searchWord,
       setSearchWord,
     }}>

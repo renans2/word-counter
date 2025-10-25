@@ -1,19 +1,25 @@
 import type { Mode } from "../types/Mode";
+import type { ProcessedWords } from "../types/ProcessedWords";
 
 export function countAndSortWords(
   input: string,
   mode: Mode,
   searchWord: string
-): [string, number][] {
+): ProcessedWords {
   let splittedWords = input.match(/[A-Za-zÀ-ÖØ-öø-ÿ]+/g) ?? [] as string[];
+  const numWords = splittedWords.length;
 
   if (mode === "searchWord") {
-    splittedWords = splittedWords.filter(word => word.startsWith(searchWord));
+    splittedWords = splittedWords.filter(word => 
+      word.toUpperCase().startsWith(searchWord.toUpperCase())
+    );
   }
 
   const frequencyMap = new Map<string, number>();
 
-  splittedWords.forEach(word => {
+  splittedWords.forEach(rawWord => {
+    const word = rawWord.toUpperCase();
+
     if (frequencyMap.has(word)) {
       const freq = frequencyMap.get(word)!;
       frequencyMap.set(word, freq + 1);
@@ -22,14 +28,21 @@ export function countAndSortWords(
     }    
   });
   
-  const sortedFrequencyMap = [...frequencyMap.entries()].sort(([, v1], [, v2]) => {
+  const sortedFrequencyMap = [...frequencyMap.entries()].sort(([w1, f1], [w2, f2]) => {
+    if (f1 === f2) {
+      return w1.localeCompare(w2);
+    }
+
     if (mode === "leastFrequent")
-      return v1 - v2;
+      return f1 - f2;
     else 
-      return v2 - v1;
+      return f2 - f1;
   });
 
-  return sortedFrequencyMap;
+  return {
+    numWords,
+    sortedFrequencyMap
+  };
 }
 
 

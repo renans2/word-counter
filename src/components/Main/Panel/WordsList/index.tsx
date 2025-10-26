@@ -39,7 +39,7 @@ export default function WordsList({
                 exit={{ x: 100, opacity: 0 }}
                 transition={{ ease: "easeInOut", duration: 0.3 }}
               >
-                <S_Word>#{i + 1} - {word[0]}</S_Word>
+                <S_Word title={`${word[0]}, ${word[1]} appearances`}>#{i + 1} - {word[0]}</S_Word>
                 <S_Frequency>{word[1]}</S_Frequency>
               </S_ListItem>
             ))}

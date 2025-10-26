@@ -49,7 +49,7 @@ export default function Panel() {
           />
         )}
 
-        <p>{words.length} unique words</p>
+        <p>{words.length} unique {words.length !== 1 ? "words" : "word"}</p>
         
         <WordsList 
           words={words}

@@ -1,6 +1,8 @@
+import { S_ClearButton } from "../../../base/ClearButton";
+import { S_SectionHeader } from "../../../base/SectionHeader";
 import { S_TextArea } from "../../../base/TextArea";
 import { useWordCounter } from "../../../context/WordCounterProvider";
-import { S_ClearButton, S_Empty, S_SectionHeader, S_SelectedTextContainer } from "./styles";
+import { S_Empty, S_SelectedTextContainer } from "./styles";
 
 export default function SelectedText() {
   const { selectedText, setSelectedText } = useWordCounter();
@@ -11,7 +13,10 @@ export default function SelectedText() {
         <p>Selected text</p>
         <S_ClearButton 
           disabled={!selectedText}
-          onClick={() => setSelectedText("")}>CLEAR</S_ClearButton>
+          onClick={() => setSelectedText("")}
+        >
+          CLEAR
+        </S_ClearButton>
       </S_SectionHeader>
 
       {selectedText ? (

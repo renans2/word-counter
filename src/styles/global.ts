@@ -12,6 +12,7 @@ export const GlobalStyles = createGlobalStyle`
     width: 100vw;
     height: 100vh;
     background-color: ${({ theme }) => theme.colors.background};
+    overflow: scroll;
   }
 
   button:not(:disabled) {

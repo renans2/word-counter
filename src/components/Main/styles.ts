@@ -4,8 +4,15 @@ import { fontSettings } from "../../styles/fontSettings";
 export const S_Main = styled.main`
   width: 100%;
   max-width: 1200px;
-  margin: 50px auto 0 auto;
+  margin-inline: auto;
+  margin-top: 50px;
   padding: 0 15px;
+
+  @media (max-width: 768px) {
+    margin-top: 15px;
+    padding: 0 7px;
+    padding-bottom: 40px;
+  }
 `;
 
 export const S_NumWords = styled.p`
@@ -15,7 +22,7 @@ export const S_NumWords = styled.p`
 `;
 
 export const S_Container = styled.div`
-  height: 600px;
+  height: 55vh;
   margin-top: 20px;
   display: grid;
   grid-template-columns: 65% 35%;
@@ -24,4 +31,15 @@ export const S_Container = styled.div`
     "selectedText panel"
     "textArea panel";
   gap: 10px;
+
+  @media (max-width: 768px) {
+    height: auto;
+    grid-template-columns: 100%;
+    grid-template-rows: 500px 200px 500px;
+    grid-template-areas:
+      "textArea"
+      "selectedText"
+      "panel";
+    gap: 20px;
+  }
 `;

@@ -57,5 +57,5 @@ export const S_ShowMoreButton = styled(S_Surface).attrs({ as: "button"})`
 export const S_FeedbackText = styled.p`
   text-align: center;
   color: ${({ theme }) => theme.colors.textSecondary};
-  margin-block: 4px;
+  margin-block: 6px;
 `;

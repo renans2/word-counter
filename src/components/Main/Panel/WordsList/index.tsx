@@ -42,7 +42,7 @@ export default function WordsList() {
           </AnimatePresence>
           
           {limitExceeded ? (
-            <S_FeedbackText>End of words!</S_FeedbackText>
+            <S_FeedbackText>No more words!</S_FeedbackText>
           ) : (
             <S_ShowMoreButton onClick={handleShowMore}>Show more</S_ShowMoreButton>
           )}

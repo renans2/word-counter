@@ -12,6 +12,7 @@ export const S_Empty = styled(S_Surface).attrs({ as: "div" })`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   color: ${({ theme }) => theme.colors.textSecondary};
   opacity: 0.5;
   user-select: none;
@@ -24,7 +25,7 @@ export const S_SectionHeader = styled.div`
 
 export const S_ClearButton = styled.button`
   margin-left: 10px;
-  padding: 4px;
+  padding: 0 6px;
   background-color: transparent;
   color: ${({ theme }) => theme.colors.textSecondary};
   border: none;

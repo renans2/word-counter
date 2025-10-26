@@ -16,9 +16,9 @@ export default function Main() {
   return (
     <S_Main>
       <S_NumWords>
-        {numWords} <> </>
-        {selectedOrTotalText} <> </>
-        {wordOrWordsText} <> </>
+        {numWords}{" "}
+        {selectedOrTotalText}{" "}
+        {wordOrWordsText}{" "}
         ({sortedFrequencyMap.length} unique)
       </S_NumWords>
       <S_Container>

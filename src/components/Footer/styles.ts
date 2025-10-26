@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
-export const S_Footer = styled.p`
+export const S_Footer = styled.footer`
   position: fixed;
   bottom: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   padding: 5px 0px;
 
   background-color: ${({ theme }) => theme.colors.backgroundAccent};

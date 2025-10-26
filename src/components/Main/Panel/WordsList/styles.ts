@@ -42,6 +42,7 @@ export const S_Frequency = styled.span`
 `;
 
 export const S_ShowMoreButton = styled(S_Surface).attrs({ as: "button"})`
+  margin-top: 8px;
   padding: 8px;
   color: ${({ theme }) => theme.colors.textPrimary};
   font-weight: bold;

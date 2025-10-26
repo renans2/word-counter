@@ -1,11 +1,15 @@
 import { AnimatePresence } from "motion/react";
-import { useWordCounter } from "../../../../context/WordCounterProvider";
 import { S_FeedbackText, S_Frequency, S_List, S_ListItem, S_ShowMoreButton, S_Word } from "./styles";
 import { useEffect, useState } from "react";
 import { INCREMENT_ITEMS_TO_SHOW, INITIAL_ITEMS_TO_SHOW } from "../../../../constants/items";
 
-export default function WordsList() {
-  const { processedWords: { sortedFrequencyMap } } = useWordCounter();
+type WordsListProps = {
+  words: [string, number][];
+}
+
+export default function WordsList({
+  words
+}: WordsListProps) {
   const [itemsToShow, setItemsToShow] = useState(INITIAL_ITEMS_TO_SHOW);
 
   const handleShowMore = () => {
@@ -14,14 +18,14 @@ export default function WordsList() {
   
   useEffect(() => {
     setItemsToShow(10);
-  }, [sortedFrequencyMap]);
+  }, [words]);
 
-  const toShow = sortedFrequencyMap.slice(0, itemsToShow);
-  const limitExceeded = itemsToShow >= sortedFrequencyMap.length;
+  const toShow = words.slice(0, itemsToShow);
+  const limitExceeded = itemsToShow >= words.length;
 
   return (
     <>
-      {sortedFrequencyMap.length === 0 ? (
+      {words.length === 0 ? (
         <S_FeedbackText>No words to show!</S_FeedbackText>
       ) : (
         <S_List>

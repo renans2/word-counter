@@ -1,44 +1,39 @@
-import React, { createContext, useContext, useState, type Dispatch, type SetStateAction } from "react"
-import type { Mode } from "../types/Mode";
-import { countAndSortWords } from "../utils/countAndSortWords";
-import type { ProcessedWords } from "../types/ProcessedWords";
+import React, { createContext, useContext, type Dispatch, type SetStateAction } from "react"
+import { getFrequencyMap } from "../utils/getFrequencyMap";
 import useLocalStorage from "../hooks/useLocalStorage";
+import type { FrequencyMap } from "../types/FrequencyMap";
 
 type WordCounterContextType = {
-  processedWords: ProcessedWords;
-  mode: Mode,
-  setMode: Dispatch<SetStateAction<Mode>>;
+  frequencyMap: FrequencyMap;
+  numWords: number;
   input: string,
   setInput: Dispatch<SetStateAction<string>>;
   selectedText: string,
   setSelectedText: Dispatch<SetStateAction<string>>;
-  searchWord: string,
-  setSearchWord: Dispatch<SetStateAction<string>>;
 }
 
 const WordCounterContext = createContext<WordCounterContextType | undefined>(undefined);
 
 export default function WordCounterProvider({ children }: { children: React.ReactNode }) {
-  const [mode, setMode] = useState<Mode>("mostFrequent");
   const [input, setInput] = useLocalStorage<string>("wordcounter/input", "");
-  const [selectedText, setSelectedText] = useState("");
-  const [searchWord, setSearchWord] = useState("");
+  const [selectedText, setSelectedText] = useLocalStorage<string>("wordcounter/selectedText", "");
   
   const toBeProcessed = selectedText ? selectedText : input;
-  const processedWords = countAndSortWords(toBeProcessed, mode, searchWord);
+  const splittedWords = toBeProcessed.match(/[A-Za-zÀ-ÖØ-öø-ÿ]+/g) ?? [] as string[];
+  const numWords = splittedWords.length;
+  const frequencyMap = getFrequencyMap(splittedWords);
 
   return (
-    <WordCounterContext value={{
-      processedWords,
-      mode,
-      setMode,
-      input,
-      setInput,
-      selectedText,
-      setSelectedText,
-      searchWord,
-      setSearchWord,
-    }}>
+    <WordCounterContext 
+      value={{
+        frequencyMap,
+        numWords,
+        input,
+        setInput,
+        selectedText,
+        setSelectedText,
+      }}
+    >
       {children}
     </WordCounterContext>
   );

@@ -2,6 +2,7 @@ import React, { createContext, useContext, type Dispatch, type SetStateAction } 
 import { getFrequencyMap } from "../utils/getFrequencyMap";
 import useLocalStorage from "../hooks/useLocalStorage";
 import type { FrequencyMap } from "../types/FrequencyMap";
+import { SPLIT_RULE } from "../constants/splitRule";
 
 type WordCounterContextType = {
   frequencyMap: FrequencyMap;
@@ -19,7 +20,7 @@ export default function WordCounterProvider({ children }: { children: React.Reac
   const [selectedText, setSelectedText] = useLocalStorage<string>("wordcounter/selectedText", "");
   
   const toBeProcessed = selectedText ? selectedText : input;
-  const splittedWords = toBeProcessed.match(/[A-Za-zÀ-ÖØ-öø-ÿ]+/g) ?? [] as string[];
+  const splittedWords = toBeProcessed.match(SPLIT_RULE) ?? [] as string[];
   const numWords = splittedWords.length;
   const frequencyMap = getFrequencyMap(splittedWords);
 

@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import type { Theme } from "./types/Theme";
 import Main from "./components/Main";
 import useLocalStorage from "./hooks/useLocalStorage";
+import Footer from "./components/Footer";
 
 export default function App() {
   const [theme, setTheme] = useLocalStorage<Theme>("wordcounter/theme", "light");
@@ -20,6 +21,7 @@ export default function App() {
           toggleTheme={() => setTheme(prev => prev === "dark" ? "light" : "dark")}
         />
         <Main />
+        <Footer />
       </WordCounterProvider>
     </ThemeProvider>
   );

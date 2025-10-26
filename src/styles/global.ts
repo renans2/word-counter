@@ -45,12 +45,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(
-      to bottom, 
-      ${({ theme }) => theme.colors.textSecondary},
-      ${({ theme }) => theme.colors.background}
-    );
-    border: ${({ theme }) => theme.border};
+    background-color: ${({ theme }) => theme.colors.scrollBar};
     border-radius: 1000px;  
     cursor: pointer;
   }

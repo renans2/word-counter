@@ -11,5 +11,6 @@ export const dark: DefaultTheme = {
     textPrimary: "#EFEFEF",
     textSecondary: "#C0C0C0",
     textAccent: "#363636",
+    scrollBar: "#454545ff"
   }
 }

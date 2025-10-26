@@ -11,5 +11,6 @@ export const light: DefaultTheme = {
     textPrimary: "#474747",
     textSecondary: "#5D5D5D",
     textAccent: "#FBFBFB",
+    scrollBar: "#DBDBDB"
   }
 }

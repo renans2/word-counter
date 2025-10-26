@@ -12,6 +12,7 @@ declare module "styled-components" {
       textPrimary: string;
       textSecondary: string;
       textAccent: string;
+      scrollBar: string;
     };
   }
 }

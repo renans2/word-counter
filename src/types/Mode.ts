@@ -1,1 +1,1 @@
-export type Mode = "leastFrequent" | "mostFrequent" | "searchWord"
+export type Mode = "topFrequent" | "leastFrequent" | "searchWord";

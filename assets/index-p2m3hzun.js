@@ -67,7 +67,8 @@ Error generating stack: `+l.message+`
     width: 100vw;
     height: 100vh;
     background-color: ${({theme:n})=>n.colors.background};
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
 
   button:not(:disabled) {
@@ -117,7 +118,7 @@ Error generating stack: `+l.message+`
   color: ${({theme:n})=>n.colors.textPrimary};
 
   @media (max-width: 768px) {
-    padding: 10px 7px;
+    padding: 10px;
 
     a {
       display: none;
@@ -301,6 +302,8 @@ Error generating stack: `+l.message+`
   width: 100%;
   resize: none;
   color: ${({theme:n,$isSelectedTextArea:i})=>i?n.colors.textSecondary:n.colors.textPrimary};
+  font-style: ${({$isSelectedTextArea:n})=>n&&"italic"};
+  font-weight: ${({$isSelectedTextArea:n})=>n&&"350"};
 
   &::placeholder {
     opacity: 0.5;
@@ -331,8 +334,8 @@ Error generating stack: `+l.message+`
 
   @media (max-width: 768px) {
     margin-top: 15px;
-    padding: 0 7px;
-    padding-bottom: 40px;
+    padding: 0 10px;
+    padding-bottom: 10px;
   }
 `,TM=Ot.p`
   color: ${({theme:n})=>n.colors.textPrimary};
@@ -367,7 +370,7 @@ Error generating stack: `+l.message+`
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 5px 0px;
+  padding: 5px;
 
   background-color: ${({theme:n})=>n.colors.backgroundAccent};
   color: ${({theme:n})=>n.colors.textAccent};
@@ -384,5 +387,9 @@ Error generating stack: `+l.message+`
   em {
     color: red;
     font-style: normal;
+  }
+
+  @media (max-width: 768px) {
+    position: relative;
   }
 `;function MM(){const n=ln.c(3);let i;n[0]===Symbol.for("react.memo_cache_sentinel")?(i=k.jsx("em",{children:"❤"}),n[0]=i):i=n[0];let s;n[1]===Symbol.for("react.memo_cache_sentinel")?(s=k.jsx("a",{href:"https://github.com/renans2",target:"_blank",rel:"noopener noreferrer",children:"renanS2"}),n[1]=s):s=n[1];let u;return n[2]===Symbol.for("react.memo_cache_sentinel")?(u=k.jsx(EM,{children:k.jsxs("span",{children:["Made with ",i," by"," ",s," ","• Inspired by"," ",k.jsx("a",{href:"https://wordcounter.net/",target:"_blank",rel:"noopener noreferrer",children:"wordcounter.net"})]})}),n[2]=u):u=n[2],u}function DM(){const n=ln.c(13),[i,s]=$l("wordcounter/theme","light"),u=i==="dark"?tA:eA;let c;n[0]===Symbol.for("react.memo_cache_sentinel")?(c=k.jsx(nA,{}),n[0]=c):c=n[0];let f;n[1]!==s?(f=()=>s(CM),n[1]=s,n[2]=f):f=n[2];let h;n[3]!==f||n[4]!==i?(h=k.jsx(gA,{theme:i,toggleTheme:f}),n[3]=f,n[4]=i,n[5]=h):h=n[5];let m,p;n[6]===Symbol.for("react.memo_cache_sentinel")?(m=k.jsx(xM,{}),p=k.jsx(MM,{}),n[6]=m,n[7]=p):(m=n[6],p=n[7]);let y;n[8]!==h?(y=k.jsxs(Fb,{children:[h,m,p]}),n[8]=h,n[9]=y):y=n[9];let g;return n[10]!==u||n[11]!==y?(g=k.jsxs(FT,{theme:u,children:[c,y]}),n[10]=u,n[11]=y,n[12]=g):g=n[12],g}function CM(n){return n==="dark"?"light":"dark"}Qb.createRoot(document.getElementById("root")).render(k.jsx(DM,{}));

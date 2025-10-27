@@ -10,8 +10,8 @@ export const S_Main = styled.main`
 
   @media (max-width: 768px) {
     margin-top: 15px;
-    padding: 0 7px;
-    padding-bottom: 40px;
+    padding: 0 10px;
+    padding-bottom: 10px;
   }
 `;
 

@@ -12,6 +12,8 @@ export const S_TextArea = styled(S_Surface).attrs({ as: "textarea" })<{
     $isSelectedTextArea
       ? theme.colors.textSecondary
       : theme.colors.textPrimary};
+  font-style: ${({ $isSelectedTextArea }) => $isSelectedTextArea && "italic"};
+  font-weight: ${({ $isSelectedTextArea }) => $isSelectedTextArea && "350"};
 
   &::placeholder {
     opacity: 0.5;

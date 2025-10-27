@@ -8,7 +8,7 @@ export const S_Footer = styled.footer`
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 5px 0px;
+  padding: 5px;
 
   background-color: ${({ theme }) => theme.colors.backgroundAccent};
   color: ${({ theme }) => theme.colors.textAccent};
@@ -25,5 +25,9 @@ export const S_Footer = styled.footer`
   em {
     color: red;
     font-style: normal;
+  }
+
+  @media (max-width: 768px) {
+    position: relative;
   }
 `;

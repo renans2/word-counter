@@ -13,7 +13,7 @@ export const S_Header = styled.header`
   color: ${({ theme }) => theme.colors.textPrimary};
 
   @media (max-width: 768px) {
-    padding: 10px 7px;
+    padding: 10px;
 
     a {
       display: none;
